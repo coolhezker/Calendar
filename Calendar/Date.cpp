@@ -1,6 +1,12 @@
 #include "Date.h"
 #include <iostream>
 
+DateError::DateError(const std::string& M) : Message{ M } {};
+
+const char* DateError::what() const noexcept {
+	return Message.c_str();
+}
+
 std::string to_stringMonth(Month M) {
 	switch (M) {
 	case(Month::January):
@@ -44,10 +50,7 @@ Day::Day() { // default day. kind of shit
 
 Day::Day(int N, int H, int M) {
 	if (!isValidDay(N, H, M)) {
-		std::cerr << "Invalid arguments... Set default day(1, 10:00)11\n";
-		Hour = 10; // it`s kind of magic constant
-		Minute = 0;
-		NumberOD = 1;
+		throw DateError("Invalid data of Day...");
 	}
 	else {
 		Hour = H;
@@ -56,13 +59,12 @@ Day::Day(int N, int H, int M) {
 	}
 }
 
-bool Day::setDay(int N, int H, int M) {
+void Day::setDay(int N, int H, int M) {
 	if (!isValidDay(N, H, M))
-		return false;
+		throw DateError("Invalid data of Day...");
 	Hour = H;
 	Minute = M;
 	NumberOD = N;
-	return true;
 }
 
 Day Day::getDay() const {
@@ -139,29 +141,23 @@ Date::Date() { // default date. kind of shit
 	Year = 1970; // it`s kind of magic constant
 	MonthOD = Month::January;
 	DayOD = Day();
-}
+} // 01.01.1970 10:00
 
 Date::Date(int Y, Month M, Day D) {
 	if (!isValidDate(Y, M, D)) {
-		*this = Date();
-		std::cerr << "Invalid arguments of Date... Set default Date(01.01.1970; 10:00)\n";
+		throw DateError("Invalid data of Date...");
 	}
-	else {
-		Year = Y;
-		MonthOD = M;
-		DayOD = D;
-	}
+	Year = Y;
+	MonthOD = M;
+	DayOD = D;
 }
 
-bool Date::setDate(int Y, Month M, Day D) {
-	if (isValidDate(Y, M, D)) {
-		Year = Y;
-		MonthOD = M;
-		DayOD = D;
-		return true;
-	} else {
-		return false;
-	}
+void Date::setDate(int Y, Month M, Day D) {
+	if (!isValidDate(Y, M, D))
+		throw DateError("Invalid data of Date...");
+	Year = Y;
+	MonthOD = M;
+	DayOD = D;
 }
 
 Day Date::getDay() const {
