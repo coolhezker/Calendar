@@ -88,7 +88,7 @@ std::string Day::getTime() {
 }
 
 bool Date::isLeapYear(int Y) {
-	return Y % 4 == 0;
+	return (Y % 4 == 0 && Y % 100 != 0) || Y % 400 == 0;
 }
 
 int Date::CountOfDays(int Y, Month M) {
@@ -143,7 +143,8 @@ Date::Date() { // default date. kind of shit
 
 Date::Date(int Y, Month M, Day D) {
 	if (!isValidDate(Y, M, D)) {
-		std::cerr << "Invalid arguments of Date...\n";
+		*this = Date();
+		std::cerr << "Invalid arguments of Date... Set default Date(01.01.1970; 10:00)\n";
 	}
 	else {
 		Year = Y;
