@@ -26,4 +26,5 @@ std::cout << myTask.getName() << " - " << myTask.getContent() << " - " << myTask
 ## Используемые технологии:
   - C++20
   - Стандартная библиотека C++ (<string>, <iostream>)
+
 Текст сгенерирован ChatGPT(не код)
