@@ -13,24 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{89f38c1c-361a-491b-b798-d1d78f6f151c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Date">
+      <UniqueIdentifier>{9b1e79e5-0ca5-471c-a43b-b002f4090d7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Task.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Task</Filter>
     </ClCompile>
     <ClCompile Include="Date.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Date</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Task.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Task</Filter>
     </ClInclude>
     <ClInclude Include="Date.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Date</Filter>
+    </ClInclude>
+    <ClInclude Include="Concepts.h">
+      <Filter>Task</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
