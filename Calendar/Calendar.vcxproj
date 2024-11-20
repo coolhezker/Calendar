@@ -119,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +131,6 @@
   <ItemGroup>
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Task.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Concepts.h" />
